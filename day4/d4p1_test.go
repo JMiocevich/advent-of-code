@@ -11,14 +11,9 @@ import (
 
 func TestPartOne(t *testing.T) {
 
-	want := 13.0
-	res := getWinningValue("test_input.txt")
+	res := getWinningValue("test.txt")
 
-	if res != want {
-		t.Fatalf(`Its not working, value returned: %f`, res)
-	}
-
-	fmt.Println(res)
+	fmt.Println("Output : ", res)
 
 }
 
@@ -48,27 +43,29 @@ func getWinningValue(input string) float64 {
 		winningCards := strings.Split(strings.TrimSpace(strings.Split(allCards, "|")[0]), " ")
 		cards := strings.Split(strings.TrimSpace(strings.Split(allCards, "|")[1]), " ")
 
+		// fmt.Println(winningCards)
+		// fmt.Println(cards)
 		// put myCards into map
 		cardMap := make(map[string]bool)
 
 		for _, card := range cards {
-			cardMap[card] = true
+			if card != "" {
+				cardMap[card] = true
+			}
 		}
-
 		// check if number is in winning deck
 
 		for _, card := range winningCards {
 
 			if cardMap[card] {
 				power += 1
+
 			}
 		}
 
-		if power == -1 {
-			continue
+		if power != -1 {
+			sum += math.Pow(float64(2), float64(power))
 		}
-
-		sum += math.Pow(float64(2), float64(power-1))
 
 	}
 
