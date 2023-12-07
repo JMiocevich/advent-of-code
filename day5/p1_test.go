@@ -27,18 +27,6 @@ func TestPartOne(t *testing.T) {
 		seed, _ := strconv.Atoi(s)
 		seeds = append(seeds, seed)
 	}
-	// seedsLen := len(seeds)
-	// var newSeeds []int
-
-	// for i := 0; i < seedsLen; i = i + 2 {
-
-	// 	for j := 0; j < seeds[i+1]; j++ {
-
-	// 		newSeeds = append(newSeeds, seeds[i]+j)
-
-	// 	}
-
-	// }
 
 	maps := strings.Split(string(file), "\n\n")[1:]
 
@@ -59,24 +47,6 @@ func TestPartOne(t *testing.T) {
 		arrayOfMaps = append(arrayOfMaps, mapArray)
 	}
 
-	// for i := 0; i < 1000000000000; i++ {
-	// 	location := i
-	// 	pointer := i
-
-	// 	for i := 6; i >= 0; i-- {
-	// 		pointer = getSource(pointer, arrayOfMaps[i])
-	// 		// fmt.Println(location)
-	// 	}
-
-	// 	if contains(newSeeds, pointer) {
-	// 		fmt.Printf("Lowest Location is : %d \n", location)
-	// 		break
-	// 	} else {
-	// 		// fmt.Printf("Location invalid : %d", location)
-	// 	}
-
-	// }
-
 	right := 9999999
 	var pointer int
 
@@ -87,7 +57,6 @@ func TestPartOne(t *testing.T) {
 		for i := 6; i >= 0; i-- {
 			pointer = getSource(pointer, arrayOfMaps[i])
 		}
-		// fmt.Println(pointer)
 
 		if contains(seeds, pointer) {
 			fmt.Printf("Lowest Location is : %d \n", z)
