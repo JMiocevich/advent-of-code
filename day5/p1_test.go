@@ -47,7 +47,7 @@ func TestPartOne(t *testing.T) {
 		arrayOfMaps = append(arrayOfMaps, mapArray)
 	}
 
-	right := 9999999
+	right := 9999999999
 	var pointer int
 
 	for z := 1; z < right; z++ {
